@@ -1,0 +1,24 @@
+{
+  "name": "pet-hotel-angular-project",
+  "version": "1.0.0",
+  "description": "pet hotel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesmeyers88/pet-hotel-angular-project.git"
+  },
+  "author": "James Meyers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesmeyers88/pet-hotel-angular-project/issues"
+  },
+  "homepage": "https://github.com/jamesmeyers88/pet-hotel-angular-project#readme",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-route": "^1.7.2",
+    "express": "^4.16.3"
+  }
+}
