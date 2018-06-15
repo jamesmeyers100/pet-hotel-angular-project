@@ -15,7 +15,7 @@ petApp.controller('DashboardController', function(PetHotelService){
             breed: vm.breedIn,
             color: vm.colorIn,
             owner: vm.selectIn,
-            is_checked_in: 'in'
+            is_checked_in: 'IN'
         };
         console.log(vm.newPet)
         PetHotelService.newAnimal = vm.newPet;

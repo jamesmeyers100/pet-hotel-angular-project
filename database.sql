@@ -14,9 +14,9 @@ CREATE TABLE pet (
 );
 
 CREATE TABLE owner_pet (
-	id SERIAL PRIMARY KEY, 
+	PRIMARY KEY("owner_id", "pet_id"),
     owner_id integer NOT NULL REFERENCES owner,
-    pet_id integer NOT NULL REFERENCES pet,
+    pet_id integer NOT NULL REFERENCES pet
 );
 
 INSERT INTO owner (first_name, last_name)
@@ -25,3 +25,10 @@ VALUES ('James', 'Meyers'),
 ('Patti', 'Sanderson'),
 ('Megan', 'Solga'),
 ('Brittany', 'Fabrello');
+
+INSERT INTO pet (name, breed, color, is_checked_in)
+VALUES ('Charles', 'Cat', 'Blue', 'IN'),
+('Harley', 'Cat', 'Grey', 'IN'),
+('Lily', 'Cat', 'Tabby', 'IN'),
+('Charlie', 'Dog', 'Miniature American Eskimo', 'IN'),
+('Tollie', 'Cat', '???', 'IN');
