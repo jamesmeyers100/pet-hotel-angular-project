@@ -11,22 +11,22 @@
     <script src="scripts/controllers/dashboard.controller.js"></script>
     <script src="scripts/controllers/manage.controller.js"></script>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Pet Hotel</title>
 </head>
 <body>
-    <h1>Your Pet Hotel</h1>
     <div ng-app="petApp">
         <header >
             <div class="jumbotron jumbotron-fluid">
-               <h1>Schmelly's Pet Hotel</h1>
+                <h1>Schmelly's Pet Hotel</h1>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#!/">Home</a></li>
-                    <li><a href="#!/dashboard">Dashboard</a></li>
-                    <li><a href="#!/manage">Manage Owners</a></li>
-                </ul>
+            <nav class="navbar-nav">
+                <form class="form-inline">
+                    <button class="nav-item"><a href="#!/" class="nav-link">Home</a></button>
+                    <button class="nav-item"><a href="#!/dashboard" class="nav-link">Dashboard</a></button>
+                    <button class="nav-item"><a href="#!/manage" class="nav-link">Manage Owners</a></button>
+                </form>
             </nav>
         </header>
         <br>

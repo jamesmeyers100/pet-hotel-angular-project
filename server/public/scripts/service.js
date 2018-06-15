@@ -4,6 +4,7 @@ petApp.service('PetHotelService', function($http){
     let sv = this;
     sv.results = [];
     
+    // petPOST
     sv.postPet = function(){
         console.log('in postPet in PetHotelService');
         return $http({
@@ -18,5 +19,22 @@ petApp.service('PetHotelService', function($http){
         .catch( function(error){
             console.log('back with an error', error)
         })
+    }// end petPOST
+
+    //ownerPOST
+    sv.postOwner = function(){
+        console.log('in ownerPOST in PetHotelService')
+        return $http({
+            method: 'POST',
+            url: '/manage',
+            data: sv.addOwner
+        })
+        .then( function(response){
+            console.log(response.data)
+            sv.results = response.data;
+        })
+        .catch( function(err){
+            console.log('Error', err)
+        });// end ownerPost
     }
 })
