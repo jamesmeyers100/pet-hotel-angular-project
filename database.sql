@@ -32,3 +32,10 @@ VALUES ('Charles', 'Cat', 'Blue', 'IN'),
 ('Lily', 'Cat', 'Tabby', 'IN'),
 ('Charlie', 'Dog', 'Miniature American Eskimo', 'IN'),
 ('Tollie', 'Cat', '???', 'IN');
+
+INSERT INTO owner_pet 
+VALUES (1, 1),
+(2, 2),
+(2, 3),
+(4, 5),
+(5, 4);

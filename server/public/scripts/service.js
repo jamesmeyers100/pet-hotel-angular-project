@@ -52,4 +52,7 @@ petApp.service('PetHotelService', function($http){
             console.log('Error', err)
         });// end ownerPost
     }
+
+    //clientDelete
+    
 })

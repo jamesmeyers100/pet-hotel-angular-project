@@ -33,4 +33,12 @@ petApp.controller('DashboardController', function(PetHotelService){
         });
     }
     PetHotelService.getPets();
+
+    vm.deleteClient = function(){
+        console.log('in DELETE on DashboardController');
+        PetHotelService.deleteClient(client)
+        .catch(function(err){
+            console.log('error in DELETE on DashboardController')
+        })
+    }
 });

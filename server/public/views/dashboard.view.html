@@ -25,11 +25,12 @@
                 <th>Actions</th>
             </tr>
             <tr ng-repeat="client in DC.clientArray">
-                <td></td>
+                <td>{{client.owner}}</td>
                 <td>{{client.name}}</td>
                 <td>{{client.breed}}</td>
                 <td>{{client.color}}</td>
-                <td>{{client.is_checked_is}}</td>
+                <td>{{client.is_checked_in}}</td>
+                <td><button ng-click="DC.deleteClient(client)">Delete</button></td>
 
             </tr>
         </table>
