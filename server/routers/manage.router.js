@@ -17,4 +17,18 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         });
 });
+
+// GETowner
+router.get('/', function(req, res){
+    console.log('in petHotelGET');
+
+    const queryText = `SELECT * FROM owner`;
+
+    pool.query(queryText)
+    .then((result) => {
+        res.send(result.rows);
+    }).catch(function(err){
+        console.log('Error in GET search', err); 
+    });
+});
 module.exports = router;

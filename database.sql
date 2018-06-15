@@ -39,3 +39,12 @@ VALUES (1, 1),
 (2, 3),
 (4, 5),
 (5, 4);
+
+SELECT owner.first_name as owner, pet.name, pet.breed, pet.color, is_checked_in FROM owner_pet
+JOIN pet ON owner_pet.pet_id = pet.id
+JOIN owner ON owner_pet.owner_id = owner.id;
+
+SELECT owner.id, owner.first_name as name, count(pet.id) as pets FROM owner_pet
+JOIN pet ON owner_pet.pet_id = pet.id
+JOIN owner ON owner_pet.owner_id = owner.id
+GROUP BY owner.id;

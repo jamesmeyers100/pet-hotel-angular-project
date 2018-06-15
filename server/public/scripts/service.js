@@ -3,6 +3,7 @@ petApp.service('PetHotelService', function($http){
     
     let sv = this;
     sv.results = [];
+    sv.ownerResults = [];
 
     //GET
     sv.getPets = function(){
@@ -13,6 +14,20 @@ petApp.service('PetHotelService', function($http){
         .then(function(response){
             console.log(response.data);
             sv.results = response.data;
+        })
+        .catch(function(err){
+            console.log('error with service GET', err)
+        })
+    }//endGET
+
+    sv.getOwners = function(){
+        return $http({
+            method: 'GET',
+            url: '/manage'
+        })
+        .then(function(response){
+            console.log('ownerGET', response.data);
+            sv.ownerResults = response.data;
         })
         .catch(function(err){
             console.log('error with service GET', err)

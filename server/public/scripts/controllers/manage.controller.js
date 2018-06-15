@@ -1,7 +1,7 @@
 petApp.controller('ManageController', function(PetHotelService){
     console.log('in ManageController');
      let vm = this;
-     vm.owner = [];
+     vm.ownerArray = [];
 
      vm.addOwner = function(){
          console.log('in addOwner on ManageController');
@@ -18,4 +18,18 @@ petApp.controller('ManageController', function(PetHotelService){
              vm.ownerIn = '';
          })
      }
+
+     vm.getOwner = function(){
+         console.log('in ownerGET on ManageController');
+         PetHotelService.getOwners()
+         .then( function(response){
+             console.log('in ownersGET on DashboardController')
+             vm.ownerArray = PetHotelService.ownerResults
+         })
+         .catch( function(err){
+             console.log('error in ownerGET on DashController', err)
+         });// end getOwners
+     }
+
+     PetHotelService.getOwners();
 });

@@ -2,6 +2,7 @@ petApp.controller('DashboardController', function(PetHotelService){
     console.log('in DashboardController');
     let vm = this;
     vm.clientArray = [];
+    vm.ownerArray = [];
 
     PetHotelService.getPets()
     .then( function(response){
@@ -11,7 +12,17 @@ petApp.controller('DashboardController', function(PetHotelService){
     })
     .catch( function(err){
         console.log('error in dashboardGET', err)
-    });
+    });// end get Pets
+
+    PetHotelService.getOwners()
+    .then( function(response){
+        console.log('in ownersGET on DashboardController')
+        vm.ownerArray = PetHotelService.ownerResults
+        console.log(vm.ownerArray)
+    })
+    .catch( function(err){
+        console.log('error in ownerGET on DashController', err)
+    });// end getOwners
 
     vm.postPet = function(){
         console.log('in postPet in DashboardController')
@@ -32,7 +43,7 @@ petApp.controller('DashboardController', function(PetHotelService){
             vm.selectIn = ''
         });
     }
-    PetHotelService.getPets();
+ 
 
     vm.deleteClient = function(){
         console.log('in DELETE on DashboardController');
@@ -41,4 +52,6 @@ petApp.controller('DashboardController', function(PetHotelService){
             console.log('error in DELETE on DashboardController')
         })
     }
+    PetHotelService.getPets();
+    PetHotelService.getOwners();
 });

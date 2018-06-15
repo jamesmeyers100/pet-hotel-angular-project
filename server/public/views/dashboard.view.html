@@ -1,4 +1,3 @@
-<h2>Dashboard View Test</h2>
 <div ng-controller="DashboardController as DC">
     <div>
         <h2>Add Your Pet</h2>
@@ -8,7 +7,7 @@
             <input type="text" placeholder="Pet Color" ng-model="DC.colorIn"/>
             <select ng-model="DC.selectIn">
                 <option value="">---Please select---</option>
-                <option ng-repeat="owner in DC.clientArray" value="{{ship.id}}">{{ship.name}}</option>
+                <option ng-repeat="owner in DC.ownerArray" value="{{owner.id}}">{{owner.first_name}}</option>
             </select>
             <input type="submit" value="Add" ng-click="DC.postPet()">
         </form>

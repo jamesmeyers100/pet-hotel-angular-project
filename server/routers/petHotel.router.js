@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 router.get('/', function(req, res){
     console.log('in petHotelGET');
 
-    const queryText = `SELECT owner.first_name as owner, pet.name, pet.breed, pet.color, is_checked_in FROM owner_pet
+    const queryText = `SELECT owner.first_name as owner, owner.id as owner_id, pet.name, pet.breed, pet.color, is_checked_in FROM owner_pet
     JOIN pet ON owner_pet.pet_id = pet.id
     JOIN owner ON owner_pet.owner_id = owner.id`;
 
@@ -32,5 +32,6 @@ router.get('/', function(req, res){
         console.log('Error in GET search', err); 
     });
 });
+
 module.exports = router;
 
