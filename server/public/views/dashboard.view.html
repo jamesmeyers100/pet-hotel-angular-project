@@ -8,7 +8,7 @@
             <input type="text" placeholder="Pet Color" ng-model="DC.colorIn"/>
             <select ng-model="DC.selectIn">
                 <option value="">---Please select---</option>
-                <option ng-repeat="owner in DC.clientArray.owner_id" value="{{ship.id}}">{{ship.name}}</option>
+                <option ng-repeat="owner in DC.clientArray" value="{{ship.id}}">{{ship.name}}</option>
             </select>
             <input type="submit" value="Add" ng-click="DC.postPet()">
         </form>
@@ -24,8 +24,13 @@
                 <th>Checked In</th>
                 <th>Actions</th>
             </tr>
-            <tr ng-repeat="client in AC.clientArray">
+            <tr ng-repeat="client in DC.clientArray">
                 <td></td>
+                <td>{{client.name}}</td>
+                <td>{{client.breed}}</td>
+                <td>{{client.color}}</td>
+                <td>{{client.is_checked_is}}</td>
+
             </tr>
         </table>
     </div>

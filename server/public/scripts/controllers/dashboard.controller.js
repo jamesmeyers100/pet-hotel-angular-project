@@ -3,10 +3,15 @@ petApp.controller('DashboardController', function(PetHotelService){
     let vm = this;
     vm.clientArray = [];
 
-    // vm.getPets = function(){
-    //     console.log('in getPets in DashboardController')
-
-    // }
+    PetHotelService.getPets()
+    .then( function(response){
+        console.log('in getPets in DashboardController')
+        vm.clientArray = PetHotelService.results
+        console.log(vm.clientArray)
+    })
+    .catch( function(err){
+        console.log('error in dashboardGET', err)
+    });
 
     vm.postPet = function(){
         console.log('in postPet in DashboardController')
@@ -27,4 +32,5 @@ petApp.controller('DashboardController', function(PetHotelService){
             vm.selectIn = ''
         });
     }
+    PetHotelService.getPets();
 });
