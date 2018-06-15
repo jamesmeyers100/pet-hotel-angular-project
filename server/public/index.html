@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="vendors/angular-route.min.js"></script>
     <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
     <script src="scripts/client.js"></script>
     <script src="scripts/service.js"></script>
     <script src="scripts/controllers/dashboard.controller.js"></script>
     <script src="scripts/controllers/manage.controller.js"></script>
-    <script src=""></script>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Pet Hotel</title>
 </head>
 <body>
-    
+    <h1>Your Pet Hotel</h1>
+    <div ng-app="petApp">
+        <header >
+            <div class="jumbotron jumbotron-fluid">
+               <h1>Schmelly's Pet Hotel</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#!/">Home</a></li>
+                    <li><a href="#!/dashboard">Dashboard</a></li>
+                    <li><a href="#!/manage">Manage Owners</a></li>
+                </ul>
+            </nav>
+        </header>
+        <br>
+        <main>
+            <ng-view>
+
+            </ng-view>
+        </main>
+    </div>
 </body>
 </html>

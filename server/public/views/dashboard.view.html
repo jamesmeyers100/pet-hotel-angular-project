@@ -1,0 +1,32 @@
+<h2>Dashboard View Test</h2>
+<div ng-controller="DashboardController as DC">
+    <div>
+        <h2>Add Your Pet</h2>
+        <form>
+            <input type="text" placeholder="Pet Name" ng-model="DC.petNameIn"/>
+            <input type="text" placeholder="Pet Breed" ng-model="DC.breedIn"/>
+            <input type="text" placeholder="Pet Color" ng-model="DC.colorIn"/>
+            <select ng-model="DC.selectIn">
+                <option value="">---Please select---</option>
+                <option ng-repeat="owner in DC.clientArray.owner_id" value="{{ship.id}}">{{ship.name}}</option>
+            </select>
+            <input type="submit" value="Add" ng-click="DC.postPet()">
+        </form>
+    </div>
+    <div>
+        <h2>History</h2>
+        <table>
+            <tr>
+                <th>Owner</th>
+                <th>Pet</th>
+                <th>Breed</th>
+                <th>Color</th>
+                <th>Checked In</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="client in AC.clientArray">
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
