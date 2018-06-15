@@ -31,5 +31,5 @@ petApp.controller('ManageController', function(PetHotelService){
          });// end getOwners
      }
 
-     PetHotelService.getOwners();
+     vm.getOwner();
 });
