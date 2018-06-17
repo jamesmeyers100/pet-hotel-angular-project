@@ -48,9 +48,9 @@ petApp.controller('DashboardController', function(PetHotelService){
     }
  
 
-    vm.deleteClient = function(client){
+    vm.deleteClient = function(pet){
         console.log('in DELETE on DashboardController');
-        PetHotelService.deleteClient(client)
+        PetHotelService.deleteClient(pet)
         .catch(function(err){
             console.log('error in DELETE on DashboardController')
         })
