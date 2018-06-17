@@ -31,5 +31,15 @@ petApp.controller('ManageController', function(PetHotelService){
          });// end getOwners
      }
 
+     vm.deleteOwner = function(owner){
+        console.log('in deleteOwner on MC', owner)
+        PetHotelService.deleteOwner(owner)
+        .then( function(){
+            vm.getOwner();
+        })
+        .catch( function(err){
+            console.log('error deleting on MC', err)
+        })
+     }// end deleteOwner
      vm.getOwner();
 });

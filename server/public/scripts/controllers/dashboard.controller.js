@@ -38,13 +38,13 @@ petApp.controller('DashboardController', function(PetHotelService){
         PetHotelService.newAnimal = vm.newPet;
         PetHotelService.postPet()
         .then( function(){
-
+            PetHotelService.getPets(); //This doesn't go here, but it needs to happen somewhere eventually
             vm.petNameIn = '',
             vm.breedIn = '',
             vm.colorIn = '',
             vm.selectIn = ''
         });
-        // PetHotelService.getPets(); This doesn't go here, but it needs to happen somewhere eventually
+        
     }
  
 

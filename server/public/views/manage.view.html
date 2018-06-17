@@ -18,7 +18,7 @@
             <tr ng-repeat="owner in MC.ownerArray">
                 <td>{{owner.owner}}</td>
                 <td>{{owner.count}}</td>
-                <td><button ng-click="MC.deleteOwner">Delete</button></td>
+                <td><button ng-click="MC.deleteOwner(owner)">Delete</button></td>
             </tr>
         </table>
     </div>

@@ -33,4 +33,20 @@ router.get('/', function(req, res){
         console.log('Error in GET search', err); 
     });
 });
+
+// deleteOwner
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    console.log('In ownerDELETE router');
+    const queryText = 'DELETE FROM owner WHERE id=$1';
+    pool.query(queryText, [id])
+      .then((results)=>{
+        console.log('Successfully deleted');
+        
+        res.sendStatus(200);
+      }).catch((err)=>{
+        console.log('Error', err);
+        res.sendStatus(500);
+      })
+  });
 module.exports = router;

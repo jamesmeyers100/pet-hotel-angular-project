@@ -66,7 +66,7 @@ petApp.service('PetHotelService', function($http){
         .catch( function(err){
             console.log('Error', err)
         });// end ownerPost
-    }
+    }// end ownerPOST
 
     //clientDelete
     sv.deleteClient = function(client){
@@ -79,5 +79,18 @@ petApp.service('PetHotelService', function($http){
         }).catch(function(error){
             console.log('error', error)
         })
+    }// end clientDelete
+
+    //ownerDelete
+    sv.deleteOwner = function(owner){
+        console.log('in deleteOwner on service', owner)
+        return $http({
+            method: 'DELETE',
+            url: '/manage/' + owner.id
+        })
+        .then(function(response){
+        }).catch(function(error){
+            console.log('error', error)
+        });
     }
-})
+})  
