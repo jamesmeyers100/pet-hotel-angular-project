@@ -27,25 +27,28 @@ petApp.controller('DashboardController', function(PetHotelService){
     vm.postPet = function(){
         console.log('in postPet in DashboardController')
         vm.newPet = {
+            owner_id: vm.selectIn,
             name: vm.petNameIn,
             breed: vm.breedIn,
             color: vm.colorIn,
-            owner: vm.selectIn,
             is_checked_in: 'IN'
+
         };
         console.log(vm.newPet)
         PetHotelService.newAnimal = vm.newPet;
         PetHotelService.postPet()
         .then( function(){
+
             vm.petNameIn = '',
             vm.breedIn = '',
             vm.colorIn = '',
             vm.selectIn = ''
         });
+        // PetHotelService.getPets(); This doesn't go here, but it needs to happen somewhere eventually
     }
  
 
-    vm.deleteClient = function(){
+    vm.deleteClient = function(client){
         console.log('in DELETE on DashboardController');
         PetHotelService.deleteClient(client)
         .catch(function(err){

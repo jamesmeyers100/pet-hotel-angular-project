@@ -69,5 +69,15 @@ petApp.service('PetHotelService', function($http){
     }
 
     //clientDelete
-    
+    sv.deleteClient = function(client){
+        console.log(client);
+        return $http({
+            method: 'DELETE',
+            url: '/pethotel/' + client.id
+        })
+        .then(function(response){
+        }).catch(function(error){
+            console.log('error', error)
+        })
+    }
 })

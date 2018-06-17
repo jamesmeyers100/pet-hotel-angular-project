@@ -7,7 +7,7 @@
             <input type="text" placeholder="Pet Color" ng-model="DC.colorIn"/>
             <select ng-model="DC.selectIn">
                 <option value="">---Please select---</option>
-                <option ng-repeat="owner in DC.ownerArray" value="{{owner.id}}">{{owner.first_name}}</option>
+                <option ng-repeat="owner in DC.ownerArray" value="{{owner.id}}">{{owner.owner}}</option>
             </select>
             <input type="submit" value="Add" ng-click="DC.postPet()">
         </form>
