@@ -4,26 +4,29 @@ petApp.controller('DashboardController', function(PetHotelService){
     vm.clientArray = [];
     vm.ownerArray = [];
 
-    PetHotelService.getPets()
-    .then( function(response){
-        console.log('in getPets in DashboardController')
-        vm.clientArray = PetHotelService.results
-        console.log(vm.clientArray)
-    })
-    .catch( function(err){
-        console.log('error in dashboardGET', err)
-    });// end get Pets
+    vm.getPets = function(){
+        PetHotelService.getPets()
+        .then( function(response){
+            console.log('in getPets in DashboardController')
+            vm.clientArray = PetHotelService.results
+            console.log(vm.clientArray)
+        })
+        .catch( function(err){
+            console.log('error in dashboardGET', err)
+        });// end get Pets
+    }
 
-    PetHotelService.getOwners()
-    .then( function(response){
-        console.log('in ownersGET on DashboardController')
-        vm.ownerArray = PetHotelService.ownerResults
-        console.log(vm.ownerArray)
-    })
-    .catch( function(err){
-        console.log('error in ownerGET on DashController', err)
-    });// end getOwners
-
+    vm.getOwners = function(){
+        PetHotelService.getOwners()
+        .then( function(response){
+            console.log('in ownersGET on DashboardController')
+            vm.ownerArray = PetHotelService.ownerResults
+            console.log(vm.ownerArray)
+        })
+        .catch( function(err){
+            console.log('error in ownerGET on DashController', err)
+        });// end getOwners
+    
     vm.postPet = function(){
         console.log('in postPet in DashboardController')
         vm.newPet = {
@@ -38,23 +41,30 @@ petApp.controller('DashboardController', function(PetHotelService){
         PetHotelService.newAnimal = vm.newPet;
         PetHotelService.postPet()
         .then( function(){
-            PetHotelService.getPets(); //This doesn't go here, but it needs to happen somewhere eventually
+            vm.getOwners();
+            vm.getPets();
             vm.petNameIn = '',
             vm.breedIn = '',
             vm.colorIn = '',
             vm.selectIn = ''
-        });
-        
+    });
+            // PetHotelService.getPets(); This doesn't go here, but it needs to happen somewhere eventually
+        }
     }
+
  
 
     vm.deleteClient = function(pet){
-        console.log('in DELETE on DashboardController');
+        console.log('in DELETE on DashboardController', pet);
         PetHotelService.deleteClient(pet)
+        .then( function(){
+            vm.getOwners();
+            vm.getPets();
+        })
         .catch(function(err){
             console.log('error in DELETE on DashboardController')
         })
     }
-    PetHotelService.getPets();
-    PetHotelService.getOwners();
+    vm.getPets();
+    vm.getOwners();
 });

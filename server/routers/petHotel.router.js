@@ -22,7 +22,7 @@ router.get('/', function(req, res){
     console.log('in petHotelGET');
 
     const queryText = `SELECT owner.first_name as owner, owner.id, pet.id as pet_id, pet.name as pet, pet.breed, pet.color, is_checked_in FROM owner
-    LEFT JOIN pet ON owner.id = pet.owner_id;`;
+    JOIN pet ON owner.id = pet.owner_id;`;
 
     pool.query(queryText)
     .then((result) => {

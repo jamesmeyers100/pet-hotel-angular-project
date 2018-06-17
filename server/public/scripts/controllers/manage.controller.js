@@ -15,6 +15,7 @@ petApp.controller('ManageController', function(PetHotelService){
          PetHotelService.addOwner = vm.owner;
          PetHotelService.postOwner()
          .then( function(){
+             vm.getOwner();
              vm.ownerIn = '';
          })
      }
