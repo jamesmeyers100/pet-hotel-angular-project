@@ -65,6 +65,25 @@ petApp.controller('DashboardController', function(PetHotelService){
             console.log('error in DELETE on DashboardController')
         })
     }
+
+    vm.checkInPet = function(thing){
+        console.log(`Thing you are trying to complete is`, thing);
+        PetHotelService.checkIn = function (thing) {
+            console.log(`Thing you are trying to send to service is`, thing);
+            // let transferData = 0;
+            // let taskCompleter = function (){
+            //     if (vm.clientArray[thing].is_checked_in == IN) {
+            //         vm.clientArray[thing].is_checked_in = OUT;
+            //         transferData = {
+            //             complete: vm.clientArray[thing].is_checked_in,
+            //             _id: vm.clientArray[thing]._id
+            //         };
+            //     }
+            // }
+            // taskCompleter();
+
+        }
+    }
     vm.getPets();
     vm.getOwners();
 });

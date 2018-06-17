@@ -81,6 +81,19 @@ petApp.service('PetHotelService', function($http){
         })
     }// end clientDelete
 
+    //start checkIn
+    sv.checkIn = function(thing){
+        $http({
+            method: 'PUT',
+            url: '/pethotel',
+            data: thing,
+        }).then(function (response) {
+            console.log('Got response from server with:', response);
+            vm.requestTasks();
+        }).catch(function (error) {
+            console.log('error changing ready to transfer', error);
+        })
+    }
     //ownerDelete
     sv.deleteOwner = function(owner){
         console.log('in deleteOwner on service', owner)

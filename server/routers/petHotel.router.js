@@ -32,6 +32,19 @@ router.get('/', function(req, res){
     });
 });
 
+router.put('/', (req, res) => {
+    let petData = req.body;
+    pool.query(petData._id, petData)
+        .then(() => {
+            console.log(`updated task with id${petData._id}`);
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`error updating task with id${petData._id}`);
+            res.sendStatus(500);
+        })
+  });//end checkIN
+
 router.delete('/:id', (req, res) => {
     const id = req.params.id;
     console.log('In DELETE router');
