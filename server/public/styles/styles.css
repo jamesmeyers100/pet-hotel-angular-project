@@ -1,18 +1,35 @@
-body {
-    background-color: blanchedalmond 
+/* body {
+    background-color: blanchedalmond;
+    background-size: 100%
+} */
+
+/* nav {
+    width: 50%
+} */
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+th {
+    text-align: center;
 }
 
-li a {
-    text-align: center
+td {
+    text-align: center;
 }
 
 #ownerInput {
     width: 60%;
 }
-
-.jumbotron {
-    /* background-image: url('../images/pet-banner.png');
-    background-size: cover; */
+.md-display-4 {
     text-align: center;
-    
+}
+
+.md-display-3 {
+    font-weight: bold;
+    text-align: center;
+}
+.md-display-2 {
+    font-style: italic;
+    text-align: center
 }

@@ -1,15 +1,16 @@
-<h2>Manage Owners</h2>
 <div ng-controller="ManageController as MC">
     <div>
-        <h2>Add Owner</h2>
-        <form>
-            <input type="text" placeholder="Owner's First and Last Name" ng-model="MC.ownerIn" id="ownerInput"/>
-            <input type="submit" value="Add" ng-click="MC.addOwner()"/>
-        </form>
+        <h2 class="md-display-2">Add Owner</h2>
+        <div align="center">
+            <form>
+                <input type="text" placeholder="Owner's First and Last Name" ng-model="MC.ownerIn" id="ownerInput"/>
+                <input type="submit" value="Add" ng-click="MC.addOwner()"/>
+            </form>
+        </div>
     </div>
     <div>
-        <h2>Owners</h2>
-        <table>
+        <h2 class="md-display-2">Owners</h2>
+        <table class="center">
             <tr>
                 <th>Name</th>
                 <th>Number of Pets</th>
@@ -18,7 +19,7 @@
             <tr ng-repeat="owner in MC.ownerArray">
                 <td>{{owner.owner}}</td>
                 <td>{{owner.count}}</td>
-                <td><button ng-click="MC.deleteOwner(owner)">Delete</button></td>
+                <td><md-button class="md-raised" ng-click="MC.deleteOwner(owner)">Delete</button></td>
             </tr>
         </table>
     </div>

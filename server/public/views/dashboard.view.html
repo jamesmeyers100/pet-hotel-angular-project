@@ -1,21 +1,24 @@
 <div ng-controller="DashboardController as DC">
     <div>
-        <h2>Add Your Pet</h2>
-        <form>
-            <input type="text" placeholder="Pet Name" ng-model="DC.petNameIn"/>
-            <input type="text" placeholder="Pet Breed" ng-model="DC.breedIn"/>
-            <input type="text" placeholder="Pet Color" ng-model="DC.colorIn"/>
-            <select ng-model="DC.selectIn">
-                <option value="">---Please select---</option>
-                <option ng-repeat="owner in DC.ownerArray" value="{{owner.id}}">{{owner.owner}}</option>
-            </select>
-            <input type="submit" value="Add" ng-click="DC.postPet()">
-        </form>
+        <h2 class="md-display-2">Add Your Pet</h2>
+        <div align="center">
+            <form>
+                <input type="text" placeholder="Pet Name" ng-model="DC.petNameIn"/>
+                <input type="text" placeholder="Pet Breed" ng-model="DC.breedIn"/>
+                <input type="text" placeholder="Pet Color" ng-model="DC.colorIn"/>
+                <select ng-model="DC.selectIn">
+                    <option value="">---Please select---</option>
+                    <option ng-repeat="owner in DC.ownerArray" value="{{owner.id}}">{{owner.owner}}</option>
+                </select>
+                <input type="submit" value="Add" ng-click="DC.postPet()">
+            </form>
+        </div>
+
     </div>
     <div>
-        <h2>History</h2>
-        <table>
-            <tr>
+        <h2 class="md-display-2">History</h2>
+        <table mat-table class="center">
+            <tr mat-header-row>
                 <th>Owner</th>
                 <th>Pet</th>
                 <th>Breed</th>
@@ -28,11 +31,11 @@
                 <td>{{client.pet}}</td>
                 <td>{{client.breed}}</td>
                 <td>{{client.color}}</td>
-                <td><button ng-click="DC.checkInPet(client)">Check {{client.is_checked_in}}</button></td>
-                <td><button ng-click="DC.deleteClient(client.pet_id)">Delete</button></td>
+                <td><md-button class="md-raised" ng-click="DC.checkInPet(client)">Check {{client.is_checked_in}}</button></td>
+                <td><md-button class="md-raised" ng-click="DC.deleteClient(client.pet_id)">Delete</button></td>
                 
 
             </tr>
-        </table>
+        </table mat-table>
     </div>
 </div>

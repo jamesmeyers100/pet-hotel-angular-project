@@ -1,4 +1,4 @@
-let petApp = angular.module('petApp', ['ngRoute']);
+let petApp = angular.module('petApp', ['ngRoute', 'ngMaterial']);
 
 petApp.config(function($routeProvider){
     $routeProvider.when('/', {
