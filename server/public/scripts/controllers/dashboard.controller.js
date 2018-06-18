@@ -67,13 +67,14 @@ petApp.controller('DashboardController', function(PetHotelService){
     }
 
     vm.checkInPet = function(thing){
+        console.log(thing)
         let blob = thing.is_checked_in == 'IN' ? 'OUT' : 'IN';
         vm.transferData = {
             is_checked_in: blob,
-            id: thing.id
+            id: thing.pet_id
         };
-        PetHotelService.petUpdate = vm.transferData;
-        PetHotelService.checkIn()
+        // PetHotelService.petUpdate = vm.transferData;
+        PetHotelService.checkIn(vm.transferData)
         .then( function(){
             console.log('its working!')
             vm.getPets();

@@ -82,11 +82,11 @@ petApp.service('PetHotelService', function($http){
     }// end clientDelete
 
     //start checkIn
-    sv.checkIn = function(){
+    sv.checkIn = function(pet){
         return $http({
             method: 'PUT',
             url: '/pethotel',
-            data: sv.petUpdate
+            data: pet
         }).then(function (response) {
             console.log('Got response from server with:', response);
         }).catch(function (error) {

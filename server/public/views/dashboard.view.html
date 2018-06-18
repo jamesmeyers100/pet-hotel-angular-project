@@ -23,7 +23,7 @@
                 <th>Pet</th>
                 <th>Breed</th>
                 <th>Color</th>
-                <th>Checked In</th>
+                <th>Check IN/OUT</th>
                 <th>Actions</th>
             </tr>
             <tr ng-repeat="client in DC.clientArray">
@@ -31,7 +31,8 @@
                 <td>{{client.pet}}</td>
                 <td>{{client.breed}}</td>
                 <td>{{client.color}}</td>
-                <td><md-button class="md-raised" ng-click="DC.checkInPet(client)">Check {{client.is_checked_in}}</button></td>
+                <td>{{client.is_checked_in}}</td>
+                <td><md-button class="md-raised" ng-click="DC.checkInPet(client)">Check IN/OUT</button></td>
                 <td><md-button class="md-raised" ng-click="DC.deleteClient(client.pet_id)">Delete</button></td>
                 
 
