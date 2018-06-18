@@ -7,7 +7,7 @@ petApp.controller('DashboardController', function(PetHotelService){
     vm.getPets = function(){
         PetHotelService.getPets()
         .then( function(response){
-            console.log('in getPets in DashboardController')
+            // console.log('in getPets in DashboardController')
             vm.clientArray = PetHotelService.results
             console.log(vm.clientArray)
         })
@@ -19,7 +19,7 @@ petApp.controller('DashboardController', function(PetHotelService){
     vm.getOwners = function(){
         PetHotelService.getOwners()
         .then( function(response){
-            console.log('in ownersGET on DashboardController')
+            // console.log('in ownersGET on DashboardController')
             vm.ownerArray = PetHotelService.ownerResults
             console.log(vm.ownerArray)
         })
@@ -67,23 +67,20 @@ petApp.controller('DashboardController', function(PetHotelService){
     }
 
     vm.checkInPet = function(thing){
-        console.log(`Thing you are trying to complete is`, thing);
-        PetHotelService.checkIn = function (thing) {
-            console.log(`Thing you are trying to send to service is`, thing);
-            // let transferData = 0;
-            // let taskCompleter = function (){
-            //     if (vm.clientArray[thing].is_checked_in == IN) {
-            //         vm.clientArray[thing].is_checked_in = OUT;
-            //         transferData = {
-            //             complete: vm.clientArray[thing].is_checked_in,
-            //             _id: vm.clientArray[thing]._id
-            //         };
-            //     }
-            // }
-            // taskCompleter();
-
-        }
+        let blob = thing.is_checked_in == 'IN' ? 'OUT' : 'IN';
+        vm.transferData = {
+            is_checked_in: blob,
+            id: thing.id
+        };
+        PetHotelService.petUpdate = vm.transferData;
+        PetHotelService.checkIn()
+        .then( function(){
+            console.log('its working!')
+            vm.getPets();
+            vm.getOwners();
+        })
     }
+    
     vm.getPets();
     vm.getOwners();
 });

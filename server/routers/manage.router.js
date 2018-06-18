@@ -22,9 +22,9 @@ router.post('/', (req, res) => {
 router.get('/', function(req, res){
     console.log('in petHotelGET');
 
-    const queryText = `SELECT owner.first_name as owner, owner.id, count(pet.id) FROM owner
+    const queryText = `SELECT owner.first_name as owner, owner.id, count(pet.id), pet.is_checked_in FROM owner
     LEFT JOIN pet ON owner.id = pet.owner_id
-    GROUP BY owner.id;`;
+    GROUP BY owner.id, pet.is_checked_in;`;
 
     pool.query(queryText)
     .then((result) => {

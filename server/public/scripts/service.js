@@ -82,14 +82,13 @@ petApp.service('PetHotelService', function($http){
     }// end clientDelete
 
     //start checkIn
-    sv.checkIn = function(thing){
-        $http({
+    sv.checkIn = function(){
+        return $http({
             method: 'PUT',
             url: '/pethotel',
-            data: thing,
+            data: sv.petUpdate
         }).then(function (response) {
             console.log('Got response from server with:', response);
-            vm.requestTasks();
         }).catch(function (error) {
             console.log('error changing ready to transfer', error);
         })

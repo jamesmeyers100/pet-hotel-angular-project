@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 router.get('/', function(req, res){
     console.log('in petHotelGET');
 
-    const queryText = `SELECT owner.first_name as owner, owner.id, pet.id as pet_id, pet.name as pet, pet.breed, pet.color, is_checked_in FROM owner
+    const queryText = `SELECT owner.first_name as owner, owner.id, pet.id as pet_id, pet.name as pet, pet.breed, pet.color, pet.is_checked_in FROM owner
     JOIN pet ON owner.id = pet.owner_id;`;
 
     pool.query(queryText)
@@ -33,14 +33,15 @@ router.get('/', function(req, res){
 });
 
 router.put('/', (req, res) => {
-    let petData = req.body;
-    pool.query(petData._id, petData)
-        .then(() => {
-            console.log(`updated task with id${petData._id}`);
+    const queryText = 'UPDATE pet SET is_checked_in = $1 WHERE id = $2;';
+
+    pool.query(queryText, [req.body.is_checked_in, req.body.id])
+        .then((results) => {
+            console.log(`updated pet`);
             res.sendStatus(200);
         })
         .catch((error) => {
-            console.log(`error updating task with id${petData._id}`);
+            console.log(`error updating pet `);
             res.sendStatus(500);
         })
   });//end checkIN
